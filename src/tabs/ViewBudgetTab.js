@@ -5,7 +5,7 @@ function ViewBudgetTab() {
 
     return (
         <div>
-          <h3>View Budget</h3>
+            <h3>View Budget</h3>
         </div>
     );
 }
