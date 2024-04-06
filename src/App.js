@@ -9,7 +9,6 @@ function App() {
     
     return (
         <div className="App">
-            <h1>Budget Patrol</h1>
             <div class="navbar">
                 <button onClick={() => setCurrentTab('addPurchase')}>Add Purchase</button>
                 <button onClick={() => setCurrentTab('viewBudget')}>View Budget</button>
