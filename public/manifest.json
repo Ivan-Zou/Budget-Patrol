@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "Budget Patrol",
+    "version": "1.0",
+    "description": "Helps you budget your purchases",
+    "icons": {
+
+    },
+    "offline_enabled": true,
+    "permissions": ["storage", "activeTab"],
+    "action": {
+      "default_popup": "index.html"
+    }
+  }
