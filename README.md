@@ -1,2 +1,2 @@
 # Budget Patrol
-## Budget tracking in the browser
+Budget tracking in the browser
