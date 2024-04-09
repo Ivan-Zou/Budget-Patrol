@@ -14,6 +14,18 @@ function AddPurchaseTab() {
         setDescription(event.target.value);
     };
 
+    function updateBudget() { // Chrome is undefined
+        // chrome.storage.local.get({ categories: []}, result => {
+        //     const categories = result.categories;
+
+        //     categories[category].budgetLeft -=  cost;
+
+        //     chrome.storage.local.set({ categories }, () => {
+        //         console.log("Budget Updated");
+        //     })
+        // });
+    };
+
     return (
         <div>
             <div id="category_dropdown">
@@ -40,7 +52,7 @@ function AddPurchaseTab() {
                 
             </div>
             <div class="submission_btns">
-                <button onClick={() => submit("yes")}>Submit</button>
+                <button onClick={() => updateBudget()}>Submit</button>
                 <button onClick={() => submit("no")}>Cancel</button>
             </div>
         </div>
