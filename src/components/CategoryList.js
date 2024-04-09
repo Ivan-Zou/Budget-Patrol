@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import "./Components.css";
 
 const CategoryList = (props) => {
 
     return (
         <div >
-            <ul>
+            <ul className="category-header">
                 <li>Category</li>
                 <li>Allocated</li>
                 <li>Remaining</li>
