@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 
 function AddPurchaseTab() {
-    const [submitted, submit] = useState("no"); // this is just a placeholder for no error in submit button
     const [category, setCategory] = useState("");
     const [cost, setCost] = useState(0.00);
     const [description, setDescription] = useState("");
@@ -27,6 +26,11 @@ function AddPurchaseTab() {
         });
     };
 
+    function cancel() {
+        document.getElementById("amount_input").value = 0.00;
+        document.getElementById("description_input").value = "";
+    };
+
     return (
         <div>
             <div id="category_dropdown">
@@ -38,13 +42,13 @@ function AddPurchaseTab() {
                     {/* This is filler need to store added categories in a list and display them */}
                 </select>
             </div>
-            <div id="amount_input">
+            <div id="amount_container">
                 <label>Amount: $ </label><br/>
-                <input type="number" placeholder="0.00" name="cost" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={cost} onInput={e => setCost(e.target.value)}/>
+                <input id="amount_input" type="number" placeholder="0.00" name="cost" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={cost} onInput={e => setCost(e.target.value)}/>
             </div>
-            <div id="description_input">
+            <div id="description_container">
                 <label> Description:</label><br/>
-                <textarea type="text" name="description" rows="4" cols="40" onChange={handleSetDescription}>
+                <textarea id="description_input" type="text" name="description" rows="4" cols="40" onChange={handleSetDescription}>
                     
                 </textarea>
             </div>
@@ -54,7 +58,7 @@ function AddPurchaseTab() {
             </div>
             <div class="submission_btns">
                 <button onClick={() => updateBudget()}>Submit</button>
-                <button onClick={() => submit("no")}>Cancel</button>
+                <button onClick={() => cancel()}>Cancel</button>
             </div>
         </div>
     );
