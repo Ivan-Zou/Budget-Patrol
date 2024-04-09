@@ -15,7 +15,7 @@ function AddPurchaseTab() {
         setDescription(event.target.value);
     };
 
-    function updateBudget() { // Chrome is undefined
+    function updateBudget() { 
         chrome.storage.local.get({ categories: []}, result => {
             const categories = result.categories;
 
