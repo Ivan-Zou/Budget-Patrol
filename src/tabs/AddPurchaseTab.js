@@ -2,11 +2,23 @@ import React, { useState, useEffect } from 'react';
 
 function AddPurchaseTab() {
     const [submitted, submit] = useState("no"); // this is just a placeholder for no error in submit button
+    const [category, setCategory] = useState("");
+    const [cost, setCost] = useState(0.00);
+    const [description, setDescription] = useState("");
+
+    const handleSelectCategory = (event) => {
+        setCategory(event.target.value);
+    };
+    
+    const handleSetDescription = (event) => {
+        setDescription(event.target.value);
+    };
+
     return (
         <div>
             <div id="category_dropdown">
                 <label for="category">Category:</label><br/>
-                <select name="category" id="category">
+                <select name="category" id="category" onChange={handleSelectCategory}>
                     <option value="food">Food</option>
                     <option value="clothes">Clothes</option>
                     <option value="school">School</option>
@@ -15,12 +27,12 @@ function AddPurchaseTab() {
             </div>
             <div id="amount_input">
                 <label>Amount: $ </label><br/>
-                <input type="number" placeholder="0.00" name="cost" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$"/>
+                <input type="number" placeholder="0.00" name="cost" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={cost} onInput={e => setCost(e.target.value)}/>
             </div>
             <div id="description_input">
                 <label> Description:</label><br/>
-                <textarea type="text" name="description" rows="4" cols="40">
-                    Enter Description...
+                <textarea type="text" name="description" rows="4" cols="40" onChange={handleSetDescription}>
+                    
                 </textarea>
             </div>
             <div id="preview_output">
