@@ -1,3 +1,4 @@
+/* global chrome */
 import React, { useState, useEffect } from 'react';
 
 function AddPurchaseTab() {
@@ -15,15 +16,15 @@ function AddPurchaseTab() {
     };
 
     function updateBudget() { // Chrome is undefined
-        // chrome.storage.local.get({ categories: []}, result => {
-        //     const categories = result.categories;
+        chrome.storage.local.get({ categories: []}, result => {
+            const categories = result.categories;
 
-        //     categories[category].budgetLeft -=  cost;
+            categories[category].budgetLeft -= cost;
 
-        //     chrome.storage.local.set({ categories }, () => {
-        //         console.log("Budget Updated");
-        //     })
-        // });
+            chrome.storage.local.set({ categories }, () => {
+                console.log("Budget Updated");
+            })
+        });
     };
 
     return (
