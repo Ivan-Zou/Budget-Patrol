@@ -14,6 +14,25 @@ function ViewBudgetTab() {
         }
     ])
 
+    chrome.storage.local.get({ categories: [] }, (result) => {
+        const categories = result.categories;
+  
+        const newCategory = {
+          key: categories.length,
+          name: category,
+          allocated: budget,
+          remaining: budget,
+        };
+  
+        categories.push(newCategory);
+
+        setCategoryItems(categories)
+  
+        chrome.storage.local.set({ categories }, () => {
+          console.log('Category saved');
+        });
+    });
+
     return (
         <div>
             <h3>View Budget</h3>
