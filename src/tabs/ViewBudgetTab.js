@@ -1,3 +1,4 @@
+/* global chrome */
 import React, { useState, useEffect } from 'react';
 import CategoryList from '../components/CategoryList';
 import CategoryItem from '../components/CategoryItem';
@@ -14,24 +15,31 @@ function ViewBudgetTab() {
         }
     ])
 
-    chrome.storage.local.get({ categories: [] }, (result) => {
-        const categories = result.categories;
-  
-        const newCategory = {
-          key: categories.length,
-          name: category,
-          allocated: budget,
-          remaining: budget,
-        };
-  
-        categories.push(newCategory);
+    function addCategory() {
+        chrome.storage.local.get({ categories: [] }, (result) => {
+            const categories = result.categories;
+    
+            const newCategory = {
+            key: categories.length,
+            name: category,
+            allocated: budget,
+            remaining: budget,
+            };
+    
+            categories.push(newCategory);
 
-        setCategoryItems(categories)
-  
-        chrome.storage.local.set({ categories }, () => {
-          console.log('Category saved');
+            setCategoryItems(categories)
+    
+            chrome.storage.local.set({ categories }, () => {
+            console.log('Category saved');
+            });
         });
-    });
+    }
+
+    function cancel() {
+        document.getElementById("budget_input").value = 0.00;
+        document.getElementById("category_input").value = "";
+    };
 
     return (
         <div>
@@ -48,6 +56,10 @@ function ViewBudgetTab() {
                 <div id="budget_container">
                     <label>Budget: $ </label><br/>
                     <input id="budget_input" type="number" placeholder="0.00" name="budget" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={budget} onInput={e => setBudget(e.target.value)}/>
+                </div>
+                <div class="submission_btns">
+                    <button onClick={() => addCategory()}>Submit</button>
+                    <button onClick={() => cancel()}>Cancel</button>
                 </div>
             </div>
         </div>
