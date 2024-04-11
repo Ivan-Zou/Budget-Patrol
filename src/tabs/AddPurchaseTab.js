@@ -5,6 +5,7 @@ function AddPurchaseTab() {
     const [category, setCategory] = useState("");
     const [cost, setCost] = useState(0.00);
     const [description, setDescription] = useState("");
+    const [categoryList, setCategoryList] = useState([]);
 
     const handleSelectCategory = (event) => {
         setCategory(event.target.value);
@@ -14,11 +15,28 @@ function AddPurchaseTab() {
         setDescription(event.target.value);
     };
 
+
+    chrome.storage.local.get({ categories: []}, result => {
+        const categories = result.categories;
+
+        const categoryNames = [];
+
+        for (let i = 0; i < categories.length; i++) {
+            categoryNames.push(categories[i].name);
+        }
+
+        setCategoryList(categoryNames);
+    });
+
     function updateBudget() { 
         chrome.storage.local.get({ categories: []}, result => {
             const categories = result.categories;
 
-            categories[category].budgetLeft -= cost;
+            for (let i = 0; i < categories.length; i++) {
+                if (categories[i].name == category) {
+                    categories[i].remaining -= cost;
+                }
+            }
 
             chrome.storage.local.set({ categories }, () => {
                 console.log("Budget Updated");
