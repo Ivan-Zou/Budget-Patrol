@@ -3,11 +3,11 @@
     background-color: #04AA6D;
     border: 1px solid white;
     color: white;
-    padding: 15px 32px;
+    padding: 8px 18px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 10px;
 }
 
 .navbar button:hover {
@@ -18,4 +18,9 @@
 .navbar button:focus {
     background-color: #5bd2a6;
     color: white;
+}
+
+.App {
+    height: 500px;
+    width: 400px;
 }
