@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CategoryList from '../components/CategoryList';
-import CategoryItem from '../components/CategoryItem';
+import Dropdown from '../components/Dropdown';
 
 function SettingsTab() {
 
@@ -44,18 +43,16 @@ function SettingsTab() {
     return (
         <div>
             <h3>Settings</h3>
+            
             <div className="dropdown">
                 <h4>Set Budgeting Period</h4>
-                <button className="dropdown-toggle" onClick={toggleMenu}>
-                    {tempPeriod}
-                </button>
-                {isOpen && (
-                    <ul className="dropdown-menu">
-                    <li onClick={() => handleNewPeriod("Weekly")}>Weekly</li>
-                    <li onClick={() => handleNewPeriod("Monthly")}>Monthly</li>
-                    <li onClick={() => handleNewPeriod("Yearly")}>Yearly</li>
-                    </ul>
-                )}
+                <Dropdown 
+                    options={[
+                        { value: "Weekly", label: "Weekly" },
+                        { value: "Monthly", label: "Monthly" },
+                        { value: "Yearly", label: "Yearly" },
+                    ]}
+                />
             </div>
             <div className = "setBudget">
                 <h4>Set Max budget</h4>
