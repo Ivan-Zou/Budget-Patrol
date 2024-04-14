@@ -1,0 +1,152 @@
+.settings-tab {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+ }
+ 
+ 
+ .settings-items {
+   background-color: #ecf0f1;
+   border-radius: 20px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   padding: 20px;
+   max-width: 500px;
+   margin: auto;
+ }
+ 
+ 
+ .header h1 {
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+ }
+ 
+ 
+ .setting-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s;
+ }
+ 
+ 
+ .setting-item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+ }
+ 
+ 
+ h4 {
+    color: #555;
+    margin-bottom: 10px;
+ }
+ 
+ 
+ .dropdown {
+    position: relative;
+ }
+ 
+ 
+ .dropdown-toggle {
+   position: relative;
+   background-color: #fff;
+   border: 2px solid #ccc;
+   padding: 10px 20px 10px 15px; /* Reduced right padding */
+   width: 100%; /* Assuming the parent container has no padding */
+   border-radius: 30px; /* Adjust this to maintain the oval shape */
+   cursor: pointer;
+   display: block;
+   transition: border-color 0.3s;
+   box-sizing: border-box; /* Ensures padding and border are included in the width */
+   text-align: left;
+   z-index: 3;
+}
+
+ 
+ 
+ .dropdown-toggle:focus,
+ .dropdown-toggle:hover {
+    border-color: #888;
+ }
+ 
+ 
+ .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: block;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 50% / 30% px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box;
+ }
+ 
+ 
+ .dropdown-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+ }
+ 
+ 
+ .dropdown-menu li:hover {
+    background-color: #f6f6f6;
+    color: #333;
+ }
+ 
+ 
+ .caret {
+   position: absolute;
+   top: 50%;
+   right: 10px;
+   transform: translateY(-50%);
+   z-index: 2;
+}
+
+ 
+ 
+ /* Input fields */
+ input[type="number"] {
+    /* Styling for your input fields */
+    width: 80%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+ }
+ 
+ 
+ /* Buttons */
+ button {
+    /* Base styling for buttons */
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+ }
+ 
+ 
+ .btn-confirm {
+    /* Specific styling for confirm button */
+    background-color: #4CAF50;
+    color: white;
+ }
+ 
+ 
+ .btn-confirm:hover {
+    /* Hover effect for confirm button */
+    background-color: #45a049;
+ }
+ 
