@@ -54,10 +54,9 @@ function AddPurchaseTab() {
             <div id="category_dropdown">
                 <label for="category">Category:</label><br/>
                 <select name="category" id="category" onChange={handleSelectCategory}>
-                    <option value="food">Food</option>
-                    <option value="clothes">Clothes</option>
-                    <option value="school">School</option>
-                    {/* This is filler need to store added categories in a list and display them */}
+                    {categoryList.map((category) => (
+                        <option value={category}>{category}</option>
+                    ))}
                 </select>
             </div>
             <div id="amount_container">
