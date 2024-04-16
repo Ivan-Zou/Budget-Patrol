@@ -42,10 +42,11 @@ function ViewBudgetTab() {
             const categories = result.categories;
     
             const newCategory = {
-            key: categories.length,
+            key: categories.length, // bad need to find better key
             name: category,
             allocated: budget,
             remaining: budget,
+            icon: "💡", 
             };
     
             categories.push(newCategory);
@@ -69,7 +70,7 @@ function ViewBudgetTab() {
 
             <TotalBudget allocated={totalAllocated} remaining={totalRemaining} />
             
-            <CategoryList>
+            <CategoryList categories={categoryItems}>
                 
             </CategoryList>
             <div>
