@@ -1,11 +1,9 @@
 .category-list {
-    background-color: #ecf0f1;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 500px;
-    margin: auto;
-  }
+  background-color: transparent; /* Make it transparent or the same as ViewBudgetTab */
+  margin: 0; /* Remove margin to avoid extra space */
+  padding: 0; /* Remove padding if ViewBudgetTab already provides it */
+  box-shadow: none; /* Optional: Remove if ViewBudgetTab has its own shadow */
+}
   
   .category-list h2 {
     font-size: 1.5rem;
