@@ -1,0 +1,48 @@
+.category-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .icon {
+    font-size: 2rem; 
+    margin-right: 15px;
+  }
+  
+  .category-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .category-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .budget-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .progress-bar-container {
+    background-color: #e1e1e1;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 10px;
+    background-color: #2ecc71;
+    width: 0; /* Will be set by inline style */
+    transition: width 0.5s ease;
+  }
+  
+  
+  

@@ -1,29 +1,28 @@
-import React, { useState } from 'react';
+// CategoryItem.jsx
+import React from 'react';
+import './CategoryItem.css'; // Assume styling specific to the category item is here
 
-const CategoryItem = (props) => {
-    const { key, name, allocatedBudget, budgetLeft, onDelete } = props;
+const CategoryItem = ({ name, allocated, remaining, icon }) => {
+  // Calculate the percentage remaining for the progress bar
+  const percentageRemaining = (remaining / allocated) * 100;
 
-    return (
-        <div>
-            <ul className="category-item" key={key}>
-                <li>
-                    <span>{name}</span>
-                </li>
-                <li>
-                    <span>{allocatedBudget}</span>
-                </li>
-                <li>
-                    <span>{budgetLeft}</span>
-                </li>
-            </ul>
-            <button className="delete-category" onClick={() => onDelete()}>
-                ** Trash Can Emoji **
-            </button>
+  return (
+    <div className="category-item">
+      <span className="icon" role="img" aria-label={name}>{icon}</span>
+      <div className="category-content">
+        <span className="category-name">{name}</span>
+        <div className="budget-details">
+          <span className="allocated">Allocated: ${allocated.toFixed(2)}</span>
+          <span className="remaining">Remaining: ${remaining.toFixed(2)}</span>
         </div>
-        
-
-    );
+        <div className="progress-bar-container">
+          <div className="progress-bar" style={{ width: `${percentageRemaining}%` }}></div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
-
 export default CategoryItem;
+
+

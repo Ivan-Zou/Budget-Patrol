@@ -1,9 +1,15 @@
 /* global chrome */
 import React, { useState, useEffect } from 'react';
 import CategoryList from '../components/CategoryList';
+import TotalBudget from '../components/TotalBudget';
 import CategoryItem from '../components/CategoryItem';
+ import './ViewBudgetTab.css';
 
 function ViewBudgetTab() {
+    // Example values will replace 
+    const totalAllocated = 10000;
+    const totalRemaining = 4800;
+
     const [budget, setBudget] = useState(0);
     const [category, setCategory] = useState("");
     const [categoryItems, setCategoryItems] = useState([
@@ -42,8 +48,11 @@ function ViewBudgetTab() {
     };
 
     return (
-        <div>
+        <div className='view-budget-tab'>
             <h3>View Budget</h3>
+
+            <TotalBudget allocated={totalAllocated} remaining={totalRemaining} />
+            
             <CategoryList>
                 
             </CategoryList>
