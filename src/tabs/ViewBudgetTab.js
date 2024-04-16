@@ -6,10 +6,8 @@ import CategoryItem from '../components/CategoryItem';
  import './ViewBudgetTab.css';
 
 function ViewBudgetTab() {
-    // Example values will replace 
-    const totalAllocated = 10000;
-    const totalRemaining = 4800;
-
+    const [totalAllocated, setTotalAllocated] = useState(0)
+    const [totalRemaining, setTotalRemaining] = useState(0)
     const [budget, setBudget] = useState(0);
     const [category, setCategory] = useState("");
     const [categoryItems, setCategoryItems] = useState([
@@ -20,6 +18,24 @@ function ViewBudgetTab() {
             remaining: 0,
         }
     ])
+
+    chrome.storage.local.get({ categories: []}, result => {
+        const categories = result.categories;
+
+        let allocated = 0;
+        let remaining = 0;
+        const categoryList = [];
+
+        for (let i = 0; i < categories.length; i++) {
+            allocated = allocated + categories[i].allocated;
+            remaining = remaining + categories[i].remaining;
+            categoryList.push(categories[i]);
+        }
+
+        setTotalAllocated(allocated);
+        setTotalRemaining(remaining);
+        setCategoryItems(categoryList);
+    });
 
     function addCategory() {
         chrome.storage.local.get({ categories: [] }, (result) => {
@@ -33,9 +49,7 @@ function ViewBudgetTab() {
             };
     
             categories.push(newCategory);
-
-            setCategoryItems(categories)
-    
+            
             chrome.storage.local.set({ categories }, () => {
             console.log('Category saved');
             });
@@ -45,6 +59,8 @@ function ViewBudgetTab() {
     function cancel() {
         document.getElementById("budget_input").value = 0.00;
         document.getElementById("category_input").value = "";
+        setBudget(0);
+        setCategory("");
     };
 
     return (
@@ -64,10 +80,10 @@ function ViewBudgetTab() {
                 </div>
                 <div id="budget_container">
                     <label>Budget: $ </label><br/>
-                    <input id="budget_input" type="number" placeholder="0.00" name="budget" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={budget} onInput={e => setBudget(e.target.value)}/>
+                    <input id="budget_input" type="number" placeholder="0.00" name="budget" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={budget} onInput={e => setBudget(+e.target.value)}/>
                 </div>
                 <div class="submission_btns">
-                    <button onClick={() => addCategory()}>Submit</button>
+                    <button onClick={() => {addCategory(); cancel()}}>Submit</button>
                     <button onClick={() => cancel()}>Cancel</button>
                 </div>
             </div>
