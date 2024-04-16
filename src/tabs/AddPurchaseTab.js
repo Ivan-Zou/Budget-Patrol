@@ -6,6 +6,7 @@ function AddPurchaseTab() {
     const [cost, setCost] = useState(0.00);
     const [description, setDescription] = useState("");
     const [categoryList, setCategoryList] = useState([]);
+    const [preview, setPreview] = useState(0);
 
     const handleSelectCategory = (event) => {
         setCategory(event.target.value);
@@ -20,12 +21,17 @@ function AddPurchaseTab() {
         const categories = result.categories;
 
         const categoryNames = [];
+        let preview_remaining = 0;
 
         for (let i = 0; i < categories.length; i++) {
             categoryNames.push(categories[i].name);
+            if (categories[i].name == category) {
+                preview_remaining = categories[i].remaining - cost;
+            }
         }
 
         setCategoryList(categoryNames);
+        setPreview(preview_remaining);
     });
 
     function updateBudget() { 
@@ -34,7 +40,7 @@ function AddPurchaseTab() {
 
             for (let i = 0; i < categories.length; i++) {
                 if (categories[i].name == category) {
-                    categories[i].remaining -= cost;
+                    categories[i].remaining = categories[i].remaining - cost;
                 }
             }
 
@@ -47,6 +53,8 @@ function AddPurchaseTab() {
     function cancel() {
         document.getElementById("amount_input").value = 0.00;
         document.getElementById("description_input").value = "";
+        setCost(0.00);
+        setDescription("");
     };
 
     return (
@@ -61,7 +69,7 @@ function AddPurchaseTab() {
             </div>
             <div id="amount_container">
                 <label>Amount: $ </label><br/>
-                <input id="amount_input" type="number" placeholder="0.00" name="cost" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={cost} onInput={e => setCost(e.target.value)}/>
+                <input id="amount_input" type="number" placeholder="0.00" name="cost" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={cost} onInput={e => setCost(+e.target.value)}/>
             </div>
             <div id="description_container">
                 <label> Description:</label><br/>
@@ -71,10 +79,10 @@ function AddPurchaseTab() {
             </div>
             <div id="preview_output">
                 <label> Preview: </label>
-                
+                <p>${preview}</p>
             </div>
             <div class="submission_btns">
-                <button onClick={() => updateBudget()}>Submit</button>
+                <button onClick={() => {updateBudget(); cancel()}}>Submit</button>
                 <button onClick={() => cancel()}>Cancel</button>
             </div>
         </div>
