@@ -1,7 +1,7 @@
 // CategoryList.jsx
 import React from 'react';
 import CategoryItem from './CategoryItem';
-import './CategoryList.css'; // Assume this file contains the necessary styles
+import './CategoryList.css'; 
 
 const CategoryList = () => {
   const categories = [
