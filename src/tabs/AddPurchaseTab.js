@@ -62,6 +62,7 @@ function AddPurchaseTab() {
             <div id="category_dropdown">
                 <label for="category">Category:</label><br/>
                 <select name="category" id="category" onChange={handleSelectCategory}>
+                    <option hidden disabled selected value>Select Category</option>
                     {categoryList.map((category) => (
                         <option value={category}>{category}</option>
                     ))}
