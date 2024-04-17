@@ -10,14 +10,30 @@ function ViewBudgetTab() {
     const [totalRemaining, setTotalRemaining] = useState(0)
     const [budget, setBudget] = useState(0);
     const [category, setCategory] = useState("");
-    const [categoryItems, setCategoryItems] = useState([
-        {
-            key: 0,
-            name: "",
-            allocated: 0,
-            remaining: 0,
-        }
-    ])
+    const [categoryItems, setCategoryItems] = useState([])
+
+    useEffect(() => {
+        // Initialize category items from local storage, or use default if storage is empty
+        chrome.storage.local.get({ categories: []}, result => {
+            const categories = result.categories;
+
+            let allocated = 0;
+            let remaining = 0;
+            const categoryList = [];
+    
+            for (let i = 0; i < categories.length; i++) {
+                allocated = allocated + categories[i].allocated;
+                remaining = remaining + categories[i].remaining;
+                categoryList.push(categories[i]);
+            }
+    
+            setTotalAllocated(allocated);
+            setTotalRemaining(remaining);
+            setCategoryItems(categoryList);
+        });
+      }, []);
+
+      
 
     chrome.storage.local.get({ categories: []}, result => {
         const categories = result.categories;
@@ -82,9 +98,7 @@ function ViewBudgetTab() {
 
             <TotalBudget allocated={totalAllocated} remaining={totalRemaining} />
             
-            <CategoryList categories={categoryItems}>
-                
-            </CategoryList>
+            <CategoryList categories={categoryItems} />
             <div>
                 <h3>Add Category</h3>
                 <div id="category_input_container">
