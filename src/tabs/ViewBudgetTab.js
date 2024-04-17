@@ -40,16 +40,28 @@ function ViewBudgetTab() {
     function addCategory() {
         chrome.storage.local.get({ categories: [] }, (result) => {
             const categories = result.categories;
+            let categoryExists = false;
     
-            const newCategory = {
-            key: categories.length, // bad need to find better key
-            name: category,
-            allocated: budget,
-            remaining: budget,
-            icon: "💡", 
-            };
-    
-            categories.push(newCategory);
+            for (let i = 0; i < categories.length; i++) {
+                if (categories[i].name == category) {
+                    categories[i].allocated = categories[i].allocated + budget;
+                    categories[i].remaining = categories[i].remaining + budget;
+                    categoryExists = true;
+                    break;
+                }
+            }
+
+            if (!categoryExists) {
+                const newCategory = {
+                key: categories.length, // bad need to find better key
+                name: category,
+                allocated: budget,
+                remaining: budget,
+                icon: "💡", 
+                };
+        
+                categories.push(newCategory);
+            }
             
             chrome.storage.local.set({ categories }, () => {
             console.log('Category saved');
@@ -77,7 +89,7 @@ function ViewBudgetTab() {
                 <h3>Add Category</h3>
                 <div id="category_input_container">
                     <label>Category: </label><br/>
-                    <input id="category_input" type="text" placeholder="Enter Category" name="category" value={category} onInput={e => setCategory(e.target.value)}/>
+                    <input id="category_input" type="text" placeholder="Enter Category" name="category" value={category} onInput={e => setCategory(e.target.value.trim())}/>
                 </div>
                 <div id="budget_container">
                     <label>Budget: $ </label><br/>
