@@ -1,5 +1,5 @@
 /* global chrome */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CategoryList from '../components/CategoryList';
 import TotalBudget from '../components/TotalBudget';
 import CategoryItem from '../components/CategoryItem';
@@ -8,32 +8,9 @@ import CategoryItem from '../components/CategoryItem';
 function ViewBudgetTab() {
     const [totalAllocated, setTotalAllocated] = useState(0)
     const [totalRemaining, setTotalRemaining] = useState(0)
-    const [budget, setBudget] = useState(0);
+    const [budget, setBudget] = useState();
     const [category, setCategory] = useState("");
     const [categoryItems, setCategoryItems] = useState([])
-
-    useEffect(() => {
-        // Initialize category items from local storage, or use default if storage is empty
-        chrome.storage.local.get({ categories: []}, result => {
-            const categories = result.categories;
-
-            let allocated = 0;
-            let remaining = 0;
-            const categoryList = [];
-    
-            for (let i = 0; i < categories.length; i++) {
-                allocated = allocated + categories[i].allocated;
-                remaining = remaining + categories[i].remaining;
-                categoryList.push(categories[i]);
-            }
-    
-            setTotalAllocated(allocated);
-            setTotalRemaining(remaining);
-            setCategoryItems(categoryList);
-        });
-      }, []);
-
-      
 
     chrome.storage.local.get({ categories: []}, result => {
         const categories = result.categories;
@@ -53,6 +30,15 @@ function ViewBudgetTab() {
         setCategoryItems(categoryList);
     });
 
+    const handleBudgetChange = (event) => {
+        const value = parseFloat(event.target.value);
+        if (!isNaN(value)) {
+            setBudget(value);
+        } else {
+            setBudget(null);
+        }
+      };
+
     function addCategory() {
         chrome.storage.local.get({ categories: [] }, (result) => {
             const categories = result.categories;
@@ -67,7 +53,7 @@ function ViewBudgetTab() {
                 }
             }
 
-            if (!categoryExists) {
+            if (!categoryExists && category != '' && budget != null) {
                 const newCategory = {
                 key: categories.length, // bad need to find better key
                 name: category,
@@ -86,9 +72,9 @@ function ViewBudgetTab() {
     }
 
     function cancel() {
-        document.getElementById("budget_input").value = 0.00;
+        document.getElementById("budget_input").value = null;
         document.getElementById("category_input").value = "";
-        setBudget(0);
+        setBudget(null);
         setCategory("");
     };
 
@@ -107,7 +93,7 @@ function ViewBudgetTab() {
                 </div>
                 <div id="budget_container">
                     <label>Budget: $ </label><br/>
-                    <input id="budget_input" type="number" placeholder="0.00" name="budget" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={budget} onInput={e => setBudget(+e.target.value)}/>
+                    <input id="budget_input" type="number" name="budget" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={budget} onChange={handleBudgetChange}/>
                 </div>
                 <div class="submission_btns">
                     <button onClick={() => {addCategory(); cancel()}}>Submit</button>

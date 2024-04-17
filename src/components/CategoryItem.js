@@ -28,30 +28,28 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
 
 
   const handleAllocatedChange = (event) => {
-    const value = parseFloat(event.target.value);
-    if (!isNaN(value)) {
-      setTempAllocated(value); // Track temporary change
-    }
+    const value = event.target.value;
+    setTempAllocated(value);
   };
 
   const handleRemainingChange = (event) => {
-    const value = parseFloat(event.target.value);
-    if (!isNaN(value)) {
-      setTempRemaining(value); // Track temporary change
-    }
+    const value = event.target.value;
+    setTempRemaining(value);
   };
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       // Apply changes if the return key is pressed
-      if (!isNaN(tempAllocated) && tempAllocated >= tempRemaining && tempAllocated >= 0) {
-        setAllocated(tempAllocated);
+      const numAlloc = parseFloat(tempAllocated);
+      const numRem = parseFloat(tempRemaining);
+      if (!isNaN(numAlloc) && numAlloc >= numRem && numAlloc >= 0) {
+        setAllocated(numAlloc);
       } else {
         setTempAllocated(allocated); // Reset to original value
       }
 
-      if (!isNaN(tempRemaining) && tempRemaining <= tempAllocated) {
-        setRemaining(tempRemaining);
+      if (!isNaN(numRem) && numRem<= numAlloc) {
+        setRemaining(numRem);
       } else {
         setTempRemaining(remaining); // Reset to original value
       }
@@ -90,7 +88,8 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
         </div>
       </div>
     </div>
-    );
+  );
+  
 };
 
 export default CategoryItem;
