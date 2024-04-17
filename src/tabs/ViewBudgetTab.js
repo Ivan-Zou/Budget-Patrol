@@ -8,7 +8,7 @@ import CategoryItem from '../components/CategoryItem';
 function ViewBudgetTab() {
     const [totalAllocated, setTotalAllocated] = useState(0)
     const [totalRemaining, setTotalRemaining] = useState(0)
-    const [budget, setBudget] = useState();
+    const [budget, setBudget] = useState(0);
     const [category, setCategory] = useState("");
     const [categoryItems, setCategoryItems] = useState([])
 
@@ -35,7 +35,7 @@ function ViewBudgetTab() {
         if (!isNaN(value)) {
             setBudget(value);
         } else {
-            setBudget(null);
+            setBudget(0);
         }
       };
 
