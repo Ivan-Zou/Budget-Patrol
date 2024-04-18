@@ -107,12 +107,12 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
             />
           </label>
         </div>
-        <div>
-        <button onClick={() => deleteCategory()}>🗑️</button>
-        </div>
         <div className="progress-bar-container">
           <div className="progress-bar" style={{ width: `${percentageRemaining}%` }}></div>
         </div>
+      </div>
+      <div className="trash_btn">
+        <button onClick={() => deleteCategory()}>🗑️</button>
       </div>
     </div>
   );
