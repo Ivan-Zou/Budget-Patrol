@@ -56,6 +56,30 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
     }
   };
 
+  function deleteCategory() {
+    chrome.storage.local.get({ categories: []}, result => {
+      const categories = result.categories;
+
+      let del = -1;
+      for (let i = 0; i < categories.length; i++) {
+          if (categories[i].name == name) {
+              del = i;
+              break;
+          }
+      };
+
+      if (del == 0) {
+        categories.shift();
+      } else {
+        categories.splice(del,del);
+      }
+
+      chrome.storage.local.set({ categories }, () => {
+          console.log("Category deleted");
+      })
+  });
+  }
+
   return (
     <div className="category-item">
       <span className="icon" role="img" aria-label={name}>{icon}</span>
@@ -82,6 +106,9 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
               style={{ width: '100px', marginLeft: '5px' }}
             />
           </label>
+        </div>
+        <div>
+        <button onClick={() => deleteCategory()}>🗑️</button>
         </div>
         <div className="progress-bar-container">
           <div className="progress-bar" style={{ width: `${percentageRemaining}%` }}></div>
