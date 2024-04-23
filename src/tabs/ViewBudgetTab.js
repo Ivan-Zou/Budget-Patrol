@@ -55,7 +55,6 @@ function ViewBudgetTab() {
 
             if (!categoryExists && category != '' && budget != null) {
                 const newCategory = {
-                key: categories.length, // bad need to find better key
                 name: category,
                 allocated: budget,
                 remaining: budget,
