@@ -1,14 +1,14 @@
 // CategoryItem.jsx
 import React, {useState, useEffect} from 'react';
 import './CategoryItem.css'; // Assume styling specific to the category item is here
+import { showNotification } from './Notification.js';
 
 const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRemaining, icon }) => {
   const [allocated, setAllocated] = useState(initialAllocated);
   const [tempAllocated, setTempAllocated] = useState(initialAllocated);
   const [remaining, setRemaining] = useState(initialRemaining);
   const [tempRemaining, setTempRemaining] = useState(initialRemaining);
-  
-  
+
 
   useEffect(() => {
     // Update local storage when allocated or remaining changes
@@ -20,7 +20,7 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
         return category;
       });
       chrome.storage.local.set({ categories });
-    });
+    }); 
   }, [allocated, remaining]);
 
   // Calculate the percentage remaining for the progress bar
@@ -44,14 +44,18 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
       const numRem = parseFloat(tempRemaining);
       if (!isNaN(numAlloc) && numAlloc >= numRem && numAlloc >= 0) {
         setAllocated(numAlloc);
+        showNotification("Allocation Updated", "Confirmed!");
       } else {
         setTempAllocated(allocated); // Reset to original value
+        showNotification("Invalid Allocation", "Warning");
       }
 
       if (!isNaN(numRem) && numRem<= numAlloc) {
         setRemaining(numRem);
+        showNotification("Remaining Updated", "Confirmed!");
       } else {
         setTempRemaining(remaining); // Reset to original value
+        showNotification("Invalid Remamining", "Warning");
       }
     }
   };
@@ -75,7 +79,7 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
       }
 
       chrome.storage.local.set({ categories }, () => {
-          console.log("Category deleted");
+          showNotification("Category Deleted", "Confirmed!");
       })
   });
   }

@@ -3,16 +3,18 @@ import React, { useState } from 'react';
 import CategoryList from '../components/CategoryList';
 import TotalBudget from '../components/TotalBudget';
 import CategoryItem from '../components/CategoryItem';
- import './ViewBudgetTab.css';
+import { showNotification } from '../components/Notification.js';
+import './ViewBudgetTab.css';
 
 function ViewBudgetTab() {
     const [totalAllocated, setTotalAllocated] = useState(0)
     const [totalRemaining, setTotalRemaining] = useState(0)
     const [budget, setBudget] = useState(0);
     const [category, setCategory] = useState("");
-    const [categoryItems, setCategoryItems] = useState([])
+    const [categoryItems, setCategoryItems] = useState([]);
+    const [maxBudget, setMax] = useState(0);
 
-    chrome.storage.local.get({ categories: []}, result => {
+    chrome.storage.local.get({ categories: [] }, result => {
         const categories = result.categories;
 
         let allocated = 0;
@@ -62,10 +64,13 @@ function ViewBudgetTab() {
                 };
         
                 categories.push(newCategory);
+                showNotification("Category Saved Succesfully", "Confirmed!");
+            } else {
+                showNotification("Failed to add category", "Warning!");
             }
             
             chrome.storage.local.set({ categories }, () => {
-            console.log('Category saved');
+                console.log('Category saved');
             });
         });
     }

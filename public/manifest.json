@@ -11,7 +11,7 @@
       "512": "images/logo.png"
     },
     "offline_enabled": true,
-    "permissions": ["storage", "activeTab"],
+    "permissions": ["storage", "activeTab", "notifications"],
     "action": {
       "default_popup": "index.html"
     }
