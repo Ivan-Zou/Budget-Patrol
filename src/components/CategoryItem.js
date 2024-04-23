@@ -77,9 +77,10 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
       } else {
         categories.splice(del,del);
       }
+      showNotification("Category Deleted", "Confirmed!");
 
       chrome.storage.local.set({ categories }, () => {
-          showNotification("Category Deleted", "Confirmed!");
+          console.log("Category Deleted");
       })
   });
   }
