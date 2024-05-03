@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import CategoryList from '../components/CategoryList';
 import TotalBudget from '../components/TotalBudget';
-import CategoryItem from '../components/CategoryItem';
 import { showNotification } from '../components/Notification.js';
 import './ViewBudgetTab.css';
 
