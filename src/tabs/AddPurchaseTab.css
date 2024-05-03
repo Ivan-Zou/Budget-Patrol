@@ -1,0 +1,50 @@
+.add_purchase_tab {
+    background-color: #ecf0f1;
+    border-radius: 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    margin: 20px auto;
+}
+
+.add_purchase_tab h3 {
+    font-size: 1.5rem; 
+    color: #2c3e50; 
+    margin-bottom: 10px; 
+    text-align: center;
+}
+
+.add_purchase_tab select,
+.add_purchase_tab textarea[type="text"],
+.add_purchase_tab input[type="number"] {
+    width: 80%; 
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+}
+
+.add_purchase_tab .preview_amount {
+    font-size: 20px;
+    font-weight: 500;
+    color: #2c3e50; 
+    text-align: center;
+}
+  
+.add_purchase_tab button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+}
+  
+.add_purchase_tab button:hover {
+    background-color: #2980b9;
+}
+
+.add_purchase_tab .submission_btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}

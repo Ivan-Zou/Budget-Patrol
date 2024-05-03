@@ -1,5 +1,6 @@
 /* global chrome */
 import React, { useState, useEffect } from 'react';
+import "./AddPurchaseTab.css";
 
 function AddPurchaseTab() {
     const [category, setCategory] = useState("");
@@ -58,7 +59,8 @@ function AddPurchaseTab() {
     };
 
     return (
-        <div>
+        <div className="add_purchase_tab">
+            <h3>Add Purchase</h3>
             <div id="category_dropdown">
                 <label for="category">Category:</label><br/>
                 <select name="category" id="category" onChange={handleSelectCategory}>
@@ -79,8 +81,8 @@ function AddPurchaseTab() {
                 </textarea>
             </div>
             <div id="preview_output">
-                <label> Preview: </label>
-                <p>${preview}</p>
+                <h3> Budget Preview </h3>
+                <p class="preview_amount">${preview}</p>
             </div>
             <div class="submission_btns">
                 <button onClick={() => {updateBudget(); cancel()}}>Submit</button>
