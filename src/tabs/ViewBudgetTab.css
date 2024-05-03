@@ -1,43 +1,42 @@
 .view-budget-tab {
-    background-color: #ecf0f1;
-    border-radius: 20px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    padding: 20px; 
-    margin: 20px auto;
-  }
+  background-color: #ecf0f1;
+  border-radius: 20px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  padding: 20px; 
+  margin: 20px auto;
+}
   
-  .view-budget-tab h3 {
-    font-size: 1.5rem; 
-    color: #2c3e50; 
-    margin-bottom: 20px; 
-  }
-  
+.view-budget-tab h3 {
+  font-size: 1.5rem; 
+  color: #2c3e50; 
+  margin-bottom: 10px; 
+  text-align: center;
+}
 
-  .view-budget-tab input[type="text"],
-  .view-budget-tab input[type="number"] {
-    width: 100%; 
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #bdc3c7;
-  }
-  
-  .view-budget-tab .submission_btns {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .view-budget-tab button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #3498db;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .view-budget-tab button:hover {
-    background-color: #2980b9;
-  }
-  
+.view-budget-tab input[type="text"],
+.view-budget-tab input[type="number"] {
+  width: 80%; 
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #bdc3c7;
+}
+
+.view-budget-tab .submission_btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.view-budget-tab button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+}
+
+.view-budget-tab button:hover {
+  background-color: #2980b9;
+}
