@@ -9,3 +9,6 @@ Budget tracking in the browser
 5) Click the **Load unpacked** button
 6) Select the **Build** folder within the **Budget-Patrol** folder
 7) Now the Budget Patrol Chrome Extension should be in your extensions menu
+
+## How-To-Run
+This Chrome extension solely runs in the popup menu, so opening the popup menu will give you all the functionality this extension has to offer.
