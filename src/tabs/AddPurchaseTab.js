@@ -62,27 +62,27 @@ function AddPurchaseTab() {
         <div className="add_purchase_tab">
             <h3>Add Purchase</h3>
             <div id="category_dropdown">
-                <label for="category">Category:</label><br/>
+                <label for="category">Category</label><br/>
                 <select name="category" id="category" onChange={handleSelectCategory}>
-                    <option hidden disabled selected value>Select Category</option>
+                    <option hidden disabled selected value></option>
                     {categoryList.map((category) => (
                         <option value={category}>{category}</option>
                     ))}
                 </select>
             </div>
             <div id="amount_container">
-                <label>Amount: $ </label><br/>
-                <input id="amount_input" type="number" placeholder="0.00" name="cost" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={cost} onInput={e => setCost(+e.target.value)}/>
+                <label>Amount $</label><br/>
+                <input id="amount_input" type="number" placeholder="0.00" name="cost" min="0" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={cost} onInput={e => setCost(+e.target.value)}/>
             </div>
             <div id="description_container">
-                <label> Description:</label><br/>
+                <label> Description</label><br/>
                 <textarea id="description_input" type="text" name="description" rows="4" cols="40" onChange={handleSetDescription}>
                     
                 </textarea>
             </div>
-            <div id="preview_output">
-                <h3> Budget Preview </h3>
-                <p class="preview_amount">${preview}</p>
+            <div className="budget_preview_container">
+                <h4> Budget Preview </h4>
+                <p>${preview}</p>
             </div>
             <div class="submission_btns">
                 <button onClick={() => {updateBudget(); cancel()}}>Submit</button>

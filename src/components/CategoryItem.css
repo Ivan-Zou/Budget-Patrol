@@ -23,6 +23,7 @@
   .category-name {
     font-weight: bold;
     margin-bottom: 5px;
+    font-size: 18px;
   }
   
   .budget-details {
@@ -38,10 +39,18 @@
   }
   
   .progress-bar {
-    height: 10px;
+    height: 7px;
     background-color: #2ecc71;
-    width: 0; /* Will be set by inline style */
+    width: 0; 
     transition: width 0.5s ease;
+  }
+
+  .allocated {
+    font-size: 15px;
+  }
+
+  .remaining {
+    font-size: 15px;
   }
   
   

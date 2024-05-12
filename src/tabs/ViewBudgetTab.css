@@ -1,9 +1,9 @@
 .view-budget-tab {
   background-color: #ecf0f1;
-  border-radius: 20px; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  padding: 20px; 
-  margin: 20px auto;
+  padding: 1em; 
+  margin: 1em auto;
+  box-sizing: border-box; 
+  max-width: 100%; 
 }
   
 .view-budget-tab h3 {
@@ -29,14 +29,14 @@
 }
 
 .view-budget-tab button {
-  padding: 10px 20px;
+  padding: 10px 15px;
   border-radius: 5px;
   border: none;
-  background-color: #3498db;
+  background-color: #256d34;
   color: white;
   cursor: pointer;
 }
 
 .view-budget-tab button:hover {
-  background-color: #2980b9;
+  background-color: #256d34;
 }

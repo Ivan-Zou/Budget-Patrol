@@ -91,12 +91,12 @@ function ViewBudgetTab() {
             <div>
                 <h3>Add Category</h3>
                 <div id="category_input_container">
-                    <label>Category: </label><br/>
-                    <input id="category_input" type="text" placeholder="Enter Category" name="category" value={category} onInput={e => setCategory(e.target.value.trim())}/>
+                    <label>Category</label><br/>
+                    <input id="category_input" type="text" placeholder="Enter Category Name" name="category" value={category} onInput={e => setCategory(e.target.value.trim())}/>
                 </div>
                 <div id="budget_container">
-                    <label>Budget: $ </label><br/>
-                    <input id="budget_input" type="number" name="budget" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={budget} onChange={handleBudgetChange}/>
+                    <label>Budget $</label><br/>
+                    <input id="budget_input" type="number" name="budget" min="0" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={budget} onChange={handleBudgetChange}/>
                 </div>
                 <div class="submission_btns">
                     <button onClick={() => {addCategory(); cancel()}}>Submit</button>
