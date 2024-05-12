@@ -4,16 +4,15 @@ import './App.css';
 import AddPurchaseTab from './tabs/AddPurchaseTab';
 import ViewBudgetTab from './tabs/ViewBudgetTab';
 import SettingsTab from './tabs/SettingsTab';
+import Navbar from './components/NavBar';
 
 function App() {
     const [currentTab, setCurrentTab] = useState('addPurchase');
     
     return (
         <div className="App">
-            <div class="navbar">
-                <button onClick={() => setCurrentTab('addPurchase')}>Add Purchase</button>
-                <button onClick={() => setCurrentTab('viewBudget')}>View Budget</button>
-                <button onClick={() => setCurrentTab('settings')}>Settings</button>
+            <div>
+                <Navbar currentTab={currentTab} setCurrentTab={setCurrentTab} />
             </div>
 
             {currentTab === 'addPurchase' && <AddPurchaseTab />}
@@ -25,3 +24,7 @@ function App() {
 }
 
 export default App;
+
+// <button onClick={() => setCurrentTab('addPurchase')}>Add Purchase</button>
+// <button onClick={() => setCurrentTab('viewBudget')}>View Budget</button>
+// <button onClick={() => setCurrentTab('settings')}>Settings</button>
