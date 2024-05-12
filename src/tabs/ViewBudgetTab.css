@@ -32,11 +32,11 @@
   padding: 10px 15px;
   border-radius: 5px;
   border: none;
-  background-color: #3498db;
+  background-color: #256d34;
   color: white;
   cursor: pointer;
 }
 
 .view-budget-tab button:hover {
-  background-color: #2980b9;
+  background-color: #256d34;
 }
