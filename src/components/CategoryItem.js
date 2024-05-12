@@ -92,7 +92,7 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
         <span className="category-name">{name}</span>
         <div className="budget-details">
           <label className="allocated">
-            Allocated: $
+            Allocated $
             <input
               type="number"
               value={tempAllocated}
@@ -102,7 +102,7 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
             />
           </label>
           <label className="remaining">
-            Remaining: $
+            Remaining $
             <input
               type="number"
               value={tempRemaining}
