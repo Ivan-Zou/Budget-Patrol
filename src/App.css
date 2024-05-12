@@ -1,10 +1,11 @@
-
 .App {
     height: 500px;
-    width: 430px;
+    width: 390px;
     background-color: #ecf0f1;
     font-family: Sans-Serif;
     color: #2c3e50;
+    overflow-y: auto; 
+    box-sizing: border-box; 
 }
 
 html, body {
