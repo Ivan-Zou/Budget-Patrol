@@ -96,7 +96,7 @@ function ViewBudgetTab() {
                 </div>
                 <div id="budget_container">
                     <label>Budget $</label><br/>
-                    <input id="budget_input" type="number" name="budget" min="0" step="0.01" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={budget} onChange={handleBudgetChange}/>
+                    <input id="budget_input" type="number" name="budget" min="0" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={budget} onChange={handleBudgetChange}/>
                 </div>
                 <div class="submission_btns">
                     <button onClick={() => {addCategory(); cancel()}}>Submit</button>
