@@ -35,4 +35,16 @@
 .App {
     height: 500px;
     width: 450px;
+    background-color: #ecf0f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: #ecf0f1; 
+    display: flex;
+    justify-content: center; 
 }
