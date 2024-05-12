@@ -71,7 +71,7 @@ function AddPurchaseTab() {
                 </select>
             </div>
             <div id="amount_container">
-                <label>Amount</label><br/>
+                <label>Amount $</label><br/>
                 <input id="amount_input" type="number" placeholder="0.00" name="cost" min="0" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={cost} onInput={e => setCost(+e.target.value)}/>
             </div>
             <div id="description_container">
