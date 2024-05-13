@@ -11,12 +11,12 @@ function ViewBudgetTab() {
     const [budget, setBudget] = useState(0);
     const [category, setCategory] = useState("");
     const [categoryItems, setCategoryItems] = useState([]);
-    const [max, setMax] = useState(1000);
+    const [max, setMax] = useState(Number.MAX_VALUE);
 
     useEffect(() => {
         // Fetch the latest max value from localStorage
         const savedMax = localStorage.getItem('max');
-        setMax(savedMax !== null ? parseFloat(savedMax) : 1000);
+        setMax(savedMax !== null ? parseFloat(savedMax) : Number.MAX_VALUE);
       }, []);
 
     chrome.storage.local.get({ categories: [] }, result => {
