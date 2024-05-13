@@ -19,6 +19,11 @@ function Navbar({ currentTab, setCurrentTab }) {
                 onClick={() => setCurrentTab('settings')}>
                 Settings
             </button>
+            <button 
+                className={`nav-button ${currentTab === 'excel_export' ? 'active' : ''}`}
+                onClick={() => setCurrentTab('excel_export')}>
+                Export to Excel
+            </button>
         </div>
     );
 }

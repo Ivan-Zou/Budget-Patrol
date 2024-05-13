@@ -5,6 +5,7 @@ import AddPurchaseTab from './tabs/AddPurchaseTab';
 import ViewBudgetTab from './tabs/ViewBudgetTab';
 import SettingsTab from './tabs/SettingsTab';
 import Navbar from './components/NavBar';
+import ExcelExportTab from './tabs/ExportToSheetTab';
 
 function App() {
     const [currentTab, setCurrentTab] = useState('addPurchase');
@@ -18,6 +19,7 @@ function App() {
             {currentTab === 'addPurchase' && <AddPurchaseTab />}
             {currentTab === 'viewBudget' && <ViewBudgetTab />}
             {currentTab === 'settings' && <SettingsTab />}
+            {currentTab === 'excel_export' && <ExcelExportTab />}
             
         </div>
     );
