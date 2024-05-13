@@ -78,7 +78,7 @@
 
 /* global chrome */
 import React, { useState } from 'react';
-import * as XLSX from 'xlsx';
+import * as XLSX from 'xlsx'; // npm install xlsx
 
 function ExcelExportTab() {
     const [loading, setLoading] = useState(false);
