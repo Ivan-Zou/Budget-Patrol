@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import AddPurchaseTab from './tabs/AddPurchaseTab';
@@ -24,7 +24,3 @@ function App() {
 }
 
 export default App;
-
-// <button onClick={() => setCurrentTab('addPurchase')}>Add Purchase</button>
-// <button onClick={() => setCurrentTab('viewBudget')}>View Budget</button>
-// <button onClick={() => setCurrentTab('settings')}>Settings</button>
