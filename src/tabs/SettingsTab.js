@@ -11,8 +11,11 @@ function SettingsTab() {
     const [isOpen, setIsOpen] = useState(false);
 
     //max possible allocation per category
-    const [max, setMax] = useState(1000.00);
-    const [tempMax, setTempMax] = useState(1000.00);
+    const [max, setMax] = useState(() => {
+        const savedMax = localStorage.getItem('max');
+        return savedMax !== null ? parseFloat(savedMax) : 1000.00;
+    });
+    const [tempMax, setTempMax] = useState(max);
     
 
     const toggleMenu = () => {
@@ -31,15 +34,13 @@ function SettingsTab() {
     const confirmAll = () => {
         setPeriod(tempPeriod);
         setMax(tempMax);
+        localStorage.setItem('max', tempMax);
     }
 
     const revertAll = () => {
         setTempPeriod(period);
         setTempMax(max);
     }
-
-    
-
 
     return (
         <div>

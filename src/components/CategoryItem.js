@@ -8,7 +8,13 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
   const [tempAllocated, setTempAllocated] = useState(initialAllocated);
   const [remaining, setRemaining] = useState(initialRemaining);
   const [tempRemaining, setTempRemaining] = useState(initialRemaining);
+  const [max, setMax] = useState(1000); // Default value, will be updated by useEffect
 
+  useEffect(() => {
+    // Fetch the latest max value from localStorage
+    const savedMax = localStorage.getItem('max');
+    setMax(savedMax !== null ? parseFloat(savedMax) : 1000);
+  }, []);
 
   useEffect(() => {
     // Update local storage when allocated or remaining changes
@@ -21,7 +27,7 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
       });
       chrome.storage.local.set({ categories });
     }); 
-  }, [allocated, remaining]);
+  }, [allocated, remaining, name]);
 
   // Calculate the percentage remaining for the progress bar
   const percentageRemaining = (remaining / allocated) * 100;
@@ -42,7 +48,7 @@ const CategoryItem = ({ name, allocated: initialAllocated, remaining: initialRem
       // Apply changes if the return key is pressed
       const numAlloc = parseFloat(tempAllocated);
       const numRem = parseFloat(tempRemaining);
-      if (!isNaN(numAlloc) && numAlloc >= numRem && numAlloc >= 0) {
+      if (!isNaN(numAlloc) && numAlloc >= numRem && numAlloc >= 0 && numAlloc <= max) {
         setAllocated(numAlloc);
         showNotification("Allocation Updated", "Confirmed!");
       } else {
