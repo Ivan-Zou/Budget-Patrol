@@ -21,15 +21,6 @@
     border-radius: 5px;
     border: 1px solid #bdc3c7;
 }
-
-.add_purchase_tab textarea[type="text"] {
-    width: 80%; 
-    height: 20px;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #bdc3c7;
-}
   
 .add_purchase_tab button {
     padding: 10px 20px;

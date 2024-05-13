@@ -5,18 +5,12 @@ import "./AddPurchaseTab.css";
 function AddPurchaseTab() {
     const [category, setCategory] = useState("");
     const [cost, setCost] = useState(0.00);
-    const [description, setDescription] = useState("");
     const [categoryList, setCategoryList] = useState([]);
     const [preview, setPreview] = useState(0);
 
     const handleSelectCategory = (event) => {
         setCategory(event.target.value);
     };
-    
-    const handleSetDescription = (event) => {
-        setDescription(event.target.value);
-    };
-
 
     chrome.storage.local.get({ categories: []}, result => {
         const categories = result.categories;
@@ -53,9 +47,7 @@ function AddPurchaseTab() {
 
     function cancel() {
         document.getElementById("amount_input").value = 0.00;
-        document.getElementById("description_input").value = "";
         setCost(0.00);
-        setDescription("");
     };
 
     return (
@@ -73,12 +65,6 @@ function AddPurchaseTab() {
             <div id="amount_container">
                 <label>Amount $</label><br/>
                 <input id="amount_input" type="number" placeholder="0.00" name="cost" min="0" title="Currency" pattern="^\d*(\.\d{1,2})?$" value={cost} onInput={e => setCost(+e.target.value)}/>
-            </div>
-            <div id="description_container">
-                <label> Description</label><br/>
-                <textarea id="description_input" type="text" name="description" rows="4" cols="40" onChange={handleSetDescription}>
-                    
-                </textarea>
             </div>
             <div className="budget_preview_container">
                 <h4> Budget Preview </h4>
