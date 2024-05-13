@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import CategoryList from '../components/CategoryList';
-import CategoryItem from '../components/CategoryItem';
+import './SettingsTab.css';
 import { showNotification } from '../components/Notification';
+
 
 function SettingsTab() {
     const [max, setMax] = useState(() => {
@@ -47,7 +47,9 @@ function SettingsTab() {
 
     return (
         <div>
-            <h3>Settings</h3>
+            <div className="settings-heading">
+                <h3>Settings</h3>
+            </div>
             <div className="setBudget">
                 <h4>Set Max budget</h4>
                 <input
