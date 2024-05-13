@@ -62,10 +62,10 @@ function SettingsTab() {
         // Define worksheet data with headers
         const worksheetData = categories.map(category => ({
             Category: category.name,
-            'Amount Remaining': category.remaining,
-            'Amount Allocated': category.allocated,
+            'Allocated': category.allocated,
+            'Remaining': category.remaining,
         }));
-        const worksheet = XLSX.utils.json_to_sheet(worksheetData, { header: ["Category", "Amount Remaining", "Amount Allocated"] });
+        const worksheet = XLSX.utils.json_to_sheet(worksheetData, { header: ["Category", "Allocated", "Remaining"] });
 
         // Create a new workbook and add the worksheet
         const workbook = XLSX.utils.book_new();
