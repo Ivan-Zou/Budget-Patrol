@@ -1,5 +1,5 @@
 /* global chrome */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CategoryList from '../components/CategoryList';
 import TotalBudget from '../components/TotalBudget';
 import { showNotification } from '../components/Notification.js';
@@ -11,7 +11,13 @@ function ViewBudgetTab() {
     const [budget, setBudget] = useState(0);
     const [category, setCategory] = useState("");
     const [categoryItems, setCategoryItems] = useState([]);
-    const [maxBudget, setMax] = useState(0);
+    const [max, setMax] = useState(1000);
+
+    useEffect(() => {
+        // Fetch the latest max value from localStorage
+        const savedMax = localStorage.getItem('max');
+        setMax(savedMax !== null ? parseFloat(savedMax) : 1000);
+      }, []);
 
     chrome.storage.local.get({ categories: [] }, result => {
         const categories = result.categories;
@@ -54,7 +60,7 @@ function ViewBudgetTab() {
                 }
             }
 
-            if (!categoryExists && category != '' && budget != null) {
+            if (!categoryExists && category != '' && budget != null && budget > 0 && budget <= max) {
                 const newCategory = {
                 name: category,
                 allocated: budget,
