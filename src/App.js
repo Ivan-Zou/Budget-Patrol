@@ -18,8 +18,8 @@ function App() {
 
             {currentTab === 'addPurchase' && <AddPurchaseTab />}
             {currentTab === 'viewBudget' && <ViewBudgetTab />}
-            {currentTab === 'settings' && <SettingsTab />}
             {currentTab === 'excel_export' && <ExcelExportTab />}
+            {currentTab === 'settings' && <SettingsTab />}
             
         </div>
     );
