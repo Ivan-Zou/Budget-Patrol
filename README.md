@@ -22,4 +22,6 @@ Budget Patrol is the ultimate tool for anyone looking to cultivate healthy spend
 This Chrome extension solely runs in the popup menu, so opening the popup menu will give you all the functionality this extension has to offer.
 
 ## Demo
-https://github.com/Ivan-Zou/Budget-Patrol/assets/105450001/ceacb4d0-b5a3-4775-9a9a-8b3820c6f2c2
+https://github.com/Ivan-Zou/Budget-Patrol/assets/105450001/c075a765-d215-4c58-a17d-d00b6f9b49dc
+
+
