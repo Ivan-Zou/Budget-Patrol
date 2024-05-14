@@ -96,6 +96,7 @@ function ViewBudgetTab() {
             <CategoryList categories={categoryItems} />
             <div>
                 <h3>Add Category</h3>
+                <label>Max Budget Set: ${max}</label>
                 <div id="category_input_container">
                     <label>Category</label><br/>
                     <input id="category_input" type="text" placeholder="Enter Category Name" name="category" value={category} onInput={e => setCategory(e.target.value.trim())}/>
