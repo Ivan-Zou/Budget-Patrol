@@ -122,7 +122,7 @@ function SettingsTab() {
                 <h4>Reset Categories</h4>
                 <button onClick={resetRemaining}>Reset Remaining Amounts</button>
             </div>
-            <div>
+            <div className = "excel">
                 <h4>Export Budget to Excel</h4>
                 <button onClick={exportToExcel} disabled={loading}>
                     {loading ? 'Generating...' : 'Generate Excel'}

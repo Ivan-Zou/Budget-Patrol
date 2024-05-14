@@ -16,7 +16,7 @@
     font-size: 1.25rem;
   }
   
-  .setBudget, .confirm, .reset {
+  .setBudget, .confirm, .reset, .excel {
     background-color: #f0f0f0;
     padding: 5px;
     border-radius: 5px;
