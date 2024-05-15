@@ -30,4 +30,7 @@ This Chrome extension solely runs in the popup menu, so opening the popup menu w
 ## Demo
 https://github.com/Ivan-Zou/Budget-Patrol/assets/105450001/c075a765-d215-4c58-a17d-d00b6f9b49dc
 
+## Landing Page
+https://arjunsshah.github.io/CIS3500-Project-Landing-Page/
+
 
