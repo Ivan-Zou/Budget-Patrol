@@ -1,4 +1,6 @@
 # Budget Patrol Chrome Extension
+<img src=https://github.com/Ivan-Zou/Budget-Patrol/assets/105450001/2e04bb61-682f-40ce-9fdb-604e902aad8c width="150" height="150"/>
+
 Introducing Budget Patrol, your personal finance companion right in your Chrome browser. With Budget Patrol, managing your expenses has never been easier. This intuitive Chrome extension empowers users to take control of their finances by creating customized spending categories with allocated budgets.
 
 Simply set up your spending categories based on your financial priorities, whether it's groceries, entertainment, or savings goals. Allocate a budget to each category to stay on track with your financial objectives.
@@ -36,4 +38,8 @@ https://arjunsshah.github.io/CIS3500-Project-Landing-Page/
 ## Blog Post
 https://medium.com/@fehra/budget-patrol-budgeting-in-the-browser-made-easy-025fdd5f3bbe
 
+## Reporting Issues
+If you encounter any issues when using our Chrome extension, please feel free to let us know by creating an issue in this repository. 
 
+## Our Team
+Ivan Zou, Allie Fehr, Roberto Ligeralde, Arjun Shah
