@@ -33,4 +33,7 @@ https://github.com/Ivan-Zou/Budget-Patrol/assets/105450001/c075a765-d215-4c58-a1
 ## Landing Page
 https://arjunsshah.github.io/CIS3500-Project-Landing-Page/
 
+## Blog Post
+https://medium.com/@fehra/budget-patrol-budgeting-in-the-browser-made-easy-025fdd5f3bbe
+
 
